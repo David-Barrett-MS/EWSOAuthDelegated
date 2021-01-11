@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxAppId = new System.Windows.Forms.TextBox();
-            this.textBoxTenantId = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTenantId = new System.Windows.Forms.TextBox();
+            this.textBoxAppId = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxResults = new System.Windows.Forms.TextBox();
             this.buttonFindFolders = new System.Windows.Forms.Button();
@@ -54,21 +54,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Application Information";
             // 
-            // textBoxAppId
+            // label2
             // 
-            this.textBoxAppId.Location = new System.Drawing.Point(86, 19);
-            this.textBoxAppId.Name = "textBoxAppId";
-            this.textBoxAppId.Size = new System.Drawing.Size(235, 20);
-            this.textBoxAppId.TabIndex = 0;
-            this.textBoxAppId.Text = "74546912-2fc3-4e3d-b11a-456062729143";
-            // 
-            // textBoxTenantId
-            // 
-            this.textBoxTenantId.Location = new System.Drawing.Point(86, 45);
-            this.textBoxTenantId.Name = "textBoxTenantId";
-            this.textBoxTenantId.Size = new System.Drawing.Size(235, 20);
-            this.textBoxTenantId.TabIndex = 1;
-            this.textBoxTenantId.Text = "fc69f6a8-90cd-4047-977d-0c768925b8ec";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tenant Id:";
             // 
             // label1
             // 
@@ -79,14 +72,19 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Application Id:";
             // 
-            // label2
+            // textBoxTenantId
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tenant Id:";
+            this.textBoxTenantId.Location = new System.Drawing.Point(86, 45);
+            this.textBoxTenantId.Name = "textBoxTenantId";
+            this.textBoxTenantId.Size = new System.Drawing.Size(235, 20);
+            this.textBoxTenantId.TabIndex = 1;
+            // 
+            // textBoxAppId
+            // 
+            this.textBoxAppId.Location = new System.Drawing.Point(86, 19);
+            this.textBoxAppId.Name = "textBoxAppId";
+            this.textBoxAppId.Size = new System.Drawing.Size(235, 20);
+            this.textBoxAppId.TabIndex = 0;
             // 
             // groupBox2
             // 
