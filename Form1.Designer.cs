@@ -37,6 +37,7 @@
             this.textBoxResults = new System.Windows.Forms.TextBox();
             this.buttonFindFolders = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonGetInboxMessages = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -127,11 +128,22 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // buttonGetInboxMessages
+            // 
+            this.buttonGetInboxMessages.Location = new System.Drawing.Point(93, 213);
+            this.buttonGetInboxMessages.Name = "buttonGetInboxMessages";
+            this.buttonGetInboxMessages.Size = new System.Drawing.Size(119, 23);
+            this.buttonGetInboxMessages.TabIndex = 4;
+            this.buttonGetInboxMessages.Text = "Get Inbox Messages";
+            this.buttonGetInboxMessages.UseVisualStyleBackColor = true;
+            this.buttonGetInboxMessages.Click += new System.EventHandler(this.buttonGetInboxMessages_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 250);
+            this.Controls.Add(this.buttonGetInboxMessages);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonFindFolders);
             this.Controls.Add(this.groupBox2);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.TextBox textBoxResults;
         private System.Windows.Forms.Button buttonFindFolders;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button buttonGetInboxMessages;
     }
 }
 

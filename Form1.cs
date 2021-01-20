@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using Microsoft.Exchange.WebServices.Data;
 using Microsoft.Identity.Client;
 
@@ -75,6 +74,52 @@ namespace EWSOAuthDelegated
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonGetInboxMessages_Click(object sender, EventArgs e)
+        {
+            Action action = new Action(async () =>
+            {
+                // Configure the MSAL client to get tokens
+                var pcaOptions = new PublicClientApplicationOptions
+                {
+                    ClientId = textBoxAppId.Text,
+                    TenantId = textBoxTenantId.Text
+                };
+
+                var pca = PublicClientApplicationBuilder
+                    .CreateWithApplicationOptions(pcaOptions).Build();
+
+                var ewsScopes = new string[] { "https://outlook.office.com/EWS.AccessAsUser.All" };
+
+                try
+                {
+                    // Make the interactive token request
+                    var authResult = await pca.AcquireTokenInteractive(ewsScopes).ExecuteAsync();
+
+                    // Configure the ExchangeService with the access token
+                    var ewsClient = new ExchangeService(ExchangeVersion.Exchange2016);
+                    ewsClient.Url = new Uri("https://outlook.office365.com/EWS/Exchange.asmx");
+                    ewsClient.Credentials = new OAuthCredentials(authResult.AccessToken);
+
+                    // Make an EWS call
+                    var items = ewsClient.FindItems(WellKnownFolderName.Inbox,new ItemView(10));
+                    foreach (var item in items)
+                    {
+                        WriteToResults($"{item.DateTimeReceived}: {item.Subject}");
+                    }
+                }
+                catch (MsalException ex)
+                {
+                    WriteToResults($"Error acquiring access token: {ex}");
+                }
+                catch (Exception ex)
+                {
+                    WriteToResults($"Error: {ex}");
+                }
+
+            });
+            System.Threading.Tasks.Task.Run(action);
         }
     }
 }
